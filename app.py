@@ -1,5 +1,5 @@
-import os, csv, hashlib, magic, pathlib
-import sqlite3
+import os, csv, hashlib, magic
+from datetime import date
 import db
 
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
@@ -36,7 +36,9 @@ def index():
     cwd = os.getcwd() # root directory of this python file
     sourcedir = cwd + "/static/images_go_here/" # directory for source images
 
-    csv_filename = cwd + "/imagetags_" + str(db.next_csv_id()) + ".csv" # output csv filename    
+    # format filename with unique id and current date
+    today = date.today()
+    csv_filename = cwd + "/imagetags" + str(db.next_csv_id()) + "_" + str(today.strftime("%Y_%m_%d")) + ".csv" # output csv filename    
     print("csv_filename:", csv_filename)
     # open csv file
     with open(csv_filename, 'w', newline='') as f:
@@ -72,10 +74,6 @@ def index():
         print("placeholder")
     else:
         # get next untagged image. display message if no more untagged images.get total count and current image count
-        
-
-
-
 
         image_count = "5/123"
         #cwd = os.getcwd()
