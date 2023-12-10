@@ -4,16 +4,46 @@
         <meta charset="utf-8">
         <link href="/static/favicon.ico" rel="icon">
         <link href="/static/styles.css" rel="stylesheet">
-        <title>image-tagger: {% block title %}{% endblock %}</title>
+        <script type="text/javascript" src="static/js/jquery-3.6.3.min.js"></script>
+        <title>Horrens{% block title %}{% endblock %}</title>
     </head>
     <body>
-        <nav class="navbar">
-            <ul class="nav-ul">
-                <li class="nav-item">test nav</li>
-            </ul>
+        <div class="header">
+        <nav>
+            {% if session.user_id %}
+          	<nav class="TopNavbar">
+			<div class="NavLeft">
+				<img src="/static/fox.png" alt="Logo">
+			</div>
+			<div class="NavLeft">
+				<label>Horrens</label>
+			</div>
+			<div class="NavRight">
+				<a href="/account">Account</a>
+			</div>
+			<div class="NavRight">
+				<a href="/logout">Log Out</a>
+			</div>
+            {% else %}
+          	<nav class="TopNavbar">
+			<div class="NavLeft">
+				<img src="/static/fox.png" alt="Logo">
+			</div>
+			<div class="NavLeft">
+				<label>Horrens</label>
+			</div>
+			<div class="NavRight">
+				<a href="/register">Register</a>
+			</div>
+			<div class="NavRight">
+				<a href="/login">Log In</a>
+			</div>
+            {% endif %}
         </nav>
-        <main>
+        </div>
+        <!-- <main> -->
             {% block main %}{% endblock %}
-        </main>
+        <!-- </main> -->
+        <!-- <footer class="page-footer">Horrens</footer> -->
     </body>
 </html>

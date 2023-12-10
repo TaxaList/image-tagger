@@ -1,14 +1,241 @@
-nav .navbar
-{
-    font-size: xx-large;
+/* ## Top Navbar ## */
+/* top navbar */
+.TopNavbar {
+  /* background-color: #99bbff; */
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,152,253,1) 100%);
+  overflow: hidden;
+  height: 37px;
 }
 
-ul .nav-ul
-{
-    font-size: xx-large;
+/* container for left-aligned top navbar items */
+.NavLeft img{
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  color: white;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  margin: 4px 6px;
 }
 
-nav .nav-item
-{
-    font-size: xx-large;
+.NavLeft label{
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  color: white;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 5px 4px;
+  font-weight: bold;
 }
+
+.NavRight {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  color: white;
+  float: right;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 4px;
+}
+.NavRight a{
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  color: white;
+  float: right;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 5px 4px;
+}
+
+body {
+	margin: 0px 0px 0px 0px;
+	}
+
+/* ## DataTable ## */
+.DataTable {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #C5CDD5;;
+  width: 99.6%; /* needed to give margin on right */
+  margin: 4px 4px;
+}
+
+/* table header row */
+.DataTable th {
+  /* border: 1px solid #ddd; */
+  color: #002F5D;
+  background: #E7E7E7;
+  padding: 8px;
+  font-size: 12px;	
+  text-align: left;
+  font-weight: normal;
+}
+
+/* table body rows */
+.DataTable td {
+  /* border: 1px solid #ddd; */
+  padding: 8px;
+  font-size: 12px;
+  text-align: left;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* color of odd rows */
+.DataTable tr:nth-child(odd) {
+   background-color: #f2f2f2;
+}
+
+/* hover */
+.DataTable tr:hover {
+  background-color: #ddd;
+}
+
+/* data forms */
+
+
+/* ## InputBar ## */
+/* TODO: work out margin/paddings on elements */
+/* botton page navbar */
+.InputBar {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  background-color: #ffdf80;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 1px 2px;
+}
+
+/* float some inputbar elements to left */
+.LeftBarElements {
+  float: left;
+  margin: 4px 4px;
+}
+
+/* float some inputbar elements to right */
+.RightBarElements {
+  float: right;
+  margin: 4px 4px; 
+}
+/* ## InputBox ## */
+.InputBox {
+  margin: 14px 14px;
+  }
+/* title text for box */
+.IBoxTitle {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  font-size: 1.4rem;
+  color: #3c3c3c;
+ }
+
+/*box to contain form elements */
+.IboxInput {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  margin: 8px 8px;
+  width: 40px;
+  color: #787878;
+}
+
+/* text input container */
+.ibox_text {
+	margin: 8px 8px;
+}
+
+.ibox_text label {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  white-space: nowrap;
+  /*width: 40px; */
+}
+
+/* submit/cancel button container */
+.ibox_button {
+	white-space: nowrap;
+	margin: 15px 40px;
+}
+
+/* info-box: used to display status at top of page */
+.info-box {
+	font-family: "Roboto",Arial,Helvetica,sans-serif;
+	border: 1px solid #FFCC33;
+	background: #fff2cc;
+	margin-top: 10px;
+	margin-left: 8px;
+	padding: 2px 12px 2px 2px;
+	text-align: left;
+	float: left;
+}
+
+.error-box {
+	font-family: "Roboto",Arial,Helvetica,sans-serif;
+	border: 1px solid #ff4d4d;
+	background: #ffb3b3;
+	margin-top: 10px;
+	margin-left: 8px;
+	padding: 2px 12px 2px 2px;
+	text-align: left;
+	float: left;
+}
+
+/*data box */
+.data-box {
+  margin-top: 8px;
+  width: 500px;
+  height: 200px;
+  margin: 8px 8px;
+  border: 1px solid #a6a6a6;
+  text-align: left;
+  overflow: hidden;
+}
+
+.data-box-title {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  font-size: 25px;
+  padding: 4px 4px;
+  text-decoration: none;
+  height: 32px;
+  background: #cccccc
+}
+
+
+ /* The data sidebar */
+ .sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 260px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+ /* top: 0; /* Stay at the top */
+  right: 0;
+  background-color: tan;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #000000;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 

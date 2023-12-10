@@ -1,0 +1,21 @@
+# api key: het from iex and replace "value"
+
+export API_KEY=value
+
+#run app
+
+flask run -p 8080
+
+
+#git
+# download
+git pull
+
+# upload
+git add filename.c
+# or
+git add *
+git commit -m "minor fixes"
+git push -u origin main
+
+pk_75f934ca607848e88578e656ae36c2dd 

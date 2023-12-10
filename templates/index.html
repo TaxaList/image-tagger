@@ -1,8 +1,57 @@
-{% extends "layout.html" %}
-{% block title %}
-    Image Tagging Interface
-{% endblock %}
-{% block main %}
-title: {{ title }}
-image path: {{ image }}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--  <link href="/static/favicon.ico" rel="icon">  -->
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Image Tagger - {{ image_name }}</title>
+    </head>
+    <body>
+        <div class="header">
+            <nav>
+                  <nav class="TopNavbar">
+                <div class="NavLeft">
+                    <img src="/static/logo.png" alt="Logo">
+                </div>
+                <div class="NavLeft">
+                    <label>Image-Tagger</label>
+                </div>
+            </nav>
+        </div>
+        <!-- right data entry bar --> 
+        <div class="sidenav">
+            <a>Count: {{ image_count }}</a>
+            <a>Image Name: {{ image_name }}</a>
+            <a>Filetype: {{ image_filetype }}</a>
+            <a>MD5 Hash: {{ image_hash }}</a>
+            <br>
+            <br>
+            <!-- prefix -->
+            <label for="prefix">Prefix:</label>
+            <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
+            
+            <!-- suffix -->
+            <label for="suffix">Suffix:</label>
+            <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
+
+            <br>
+            <!-- data -->
+            <label for="data">Data:</label>
+            <input type="text" id="data" name="data" autofocus><br><br>
+            Flags:<br>
+            <button type="button">Delete</button> 
+            <button type="button">Redo</button> 
+        
+        </div>
+
+        <main>
+            <img src="{{ image_path }}">
+        </main>
+
+        <!--
+        <footer>
+            Image Tagger (c) 2021
+        </footer>
+    -->
+    </body>
+</html>
