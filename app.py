@@ -1,5 +1,5 @@
 import os, csv, hashlib, magic
-from datetime import date
+from datetime import date, datetime
 import db
 
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
@@ -44,13 +44,14 @@ def on_start():
     global session_id
     session_id = str(db.next_csv_id())
 
+    global csv_filename
     csv_filename = cwd + "/imagetags" + session_id + "_" + str(today.strftime("%Y_%m_%d")) + ".csv" # output csv filename    
     #print("csv_filename:", csv_filename)
     # open csv file
     with open(csv_filename, 'w', newline='') as f:
         writer = csv.writer(f)
         # write header
-        writer.writerow(['id','filename', 'md5hash', 'filetype', 'tagged', 'data', 'tagged_date' ])
+        writer.writerow(['id', 'count', 'filename', 'md5hash', 'filetype', 'tagged_date', 'data'])
         
     # add image files to db
     # TODO: handle no images
@@ -100,6 +101,11 @@ def index():
 
         # add all data to csv file
         img_filename, img_count, image_filetype, image_hash = db.get_image_data(session["img_id"])
+
+        with open(csv_filename, 'a') as f:
+            # write image data
+            writer = csv.writer(f)
+            writer.writerow([session["img_id"], img_count, img_filename, image_hash, image_filetype, datetime.now(), tag_data])
 
         # redirect
         return redirect("/")
