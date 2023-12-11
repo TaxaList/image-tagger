@@ -40,12 +40,14 @@ def get_next_image(session_id): # Get the next un-tagged image in the session (o
 
     cur.execute("SELECT id, filename, img_count, hash, filetype FROM image_log WHERE session_id = ? AND status = 0 ORDER BY img_count", (session_id,))
     rows = cur.fetchone()
-
-    #placeholder = ["testimg.jpg", 2, "testfiletype", "testhash"]
-    print("DB RESULT:", rows)
     conn.close()
 
-    return rows
+    if rows:
+        return rows
+    else:
+        return 1
+
+    
 
 def add_tag(id, data): # add tag data to image by image id TODO: add date stamp
     conn = sqlite3.connect("main.db")

@@ -58,14 +58,14 @@ def on_start():
     img_count = 0
     for path, dirs, files in os.walk(sourcedir):
         for filename in files:
-            print("filename:", filename)
+            #print("filename:", filename)
 
             # hash file
             hasher = hashlib.md5() # put file in buffer to get hash
             with open(str(sourcedir + filename), 'rb') as afile:
                 buf = afile.read()
                 hasher.update(buf)
-            print(hasher.hexdigest())
+            #print(hasher.hexdigest())
 
             # get filetype
             filetype = magic.from_file(str(sourcedir + filename))
@@ -90,6 +90,10 @@ def index():
     global prefix
     global suffix
     if request.method == "POST":
+        # check if no more images from previous run
+        if session["img_id"] == 0:
+            return redirect("/")
+
         # save prefix/suffix
         prefix = request.form.get("prefix")
         suffix = request.form.get("suffix")
@@ -113,7 +117,14 @@ def index():
         # get next untagged image. TODO: display message if no more untagged images.  get total count and current image count
         
         # get next image data from db
-        img_id, img_filename, img_count, image_filetype, image_hash = db.get_next_image(session_id)
+        image_data = db.get_next_image(session_id)
+        if image_data == 1: # no more images
+            alert = "Finished All Images"
+            img_id = 0
+            img_filename = img_count = image_hash = image_filetype = ""
+        else:
+            alert = ""
+            img_id, img_filename, img_count, image_hash, image_filetype = image_data
         
         # save image id
         session["img_id"] = img_id
@@ -122,9 +133,9 @@ def index():
         image_count = str(img_count) + "/" + str(img_total)
         
         # put together path for image
-        image_path = "/static/images_go_here/" + img_filename # TODO: figure out how to have flask call images_go_here folder 
+        image_path = "/static/images_go_here/" + img_filename # TODO: figure out how to have flask call images_go_here folder in main dir
 
-        return render_template("index.html", image_count=image_count, image_path=image_path, image_name=img_filename, image_filetype=image_filetype, image_hash=image_hash, prefix=prefix, suffix=suffix)
+        return render_template("index.html", image_count=image_count, image_path=image_path, image_name=img_filename, image_filetype=image_filetype, image_hash=image_hash, prefix=prefix, suffix=suffix, alert=alert)
 
 # start flask on running app.py, run on_start
 on_start()

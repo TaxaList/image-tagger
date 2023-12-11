@@ -53,6 +53,14 @@ body {
 	margin: 0px 0px 0px 0px;
 	}
 
+.alert {
+  font-family: "Roboto",Arial,Helvetica,sans-serif;
+  font-size: 70px;
+  margin: 5px 5px;
+}
+
+/* in use? */
+
 /* ## DataTable ## */
 .DataTable {
   font-family: "Roboto",Arial,Helvetica,sans-serif;
