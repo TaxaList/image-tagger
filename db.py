@@ -22,3 +22,27 @@ def next_csv_id(): #get next id for csv file and iterate
     conn.close()
 
     return count
+
+
+def addimage(session_id, img_count, filename, hash, filetype): #add images data to db
+    conn = sqlite3.connect("main.db")
+    cur = conn.cursor()
+
+    cur.execute("INSERT INTO image_log(session_id, img_count, filename, hash, filetype, time_added, status) VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?)", (session_id, img_count, filename, hash, filetype, 0))
+    conn.commit()
+
+    conn.close()
+
+
+def get_next_image(session_id): # Get the next un-tagged image in the session (ordered by img_count) and return its filename. return 1 if no more images TODO: return 1 if no records
+    conn = sqlite3.connect("main.db")
+    cur = conn.cursor()
+
+    cur.execute("SELECT id, filename, img_count, hash, filetype FROM image_log WHERE session_id = ? AND status = 0 ORDER BY img_count", (session_id,))
+    rows = cur.fetchone()
+
+    #placeholder = ["testimg.jpg", 2, "testfiletype", "testhash"]
+    print("DB RESULT:", rows)
+    conn.close()
+
+    return rows
