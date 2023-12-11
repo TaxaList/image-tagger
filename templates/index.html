@@ -26,24 +26,24 @@
             <a>MD5 Hash: {{ image_hash }}</a>
             <br>
             <br>
-            <!-- prefix -->
-            <label for="prefix">Prefix:</label>
-            <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
-            
-            <!-- suffix -->
-            <label for="suffix">Suffix:</label>
-            <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
 
-            <br>
-            <!-- data -->
-            <label for="data">Data:</label>
-            <input type="text" id="data" name="data" autofocus><br><br>
-            Flags:<br>
-            <button type="button">Delete</button> 
-            <button type="button">Redo</button> 
-        
+            <form action="/" method="post">
+                <!-- prefix -->
+                <label for="prefix">Prefix:</label>
+                <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
+                <!-- suffix -->
+                <label for="suffix">Suffix:</label>
+                <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
+                <br>
+                <!-- data -->
+                <label for="data">Data:</label>
+                <input type="text" id="data" name="data" autofocus><br><br>
+                <button class="login-button" type="submit">Submit</button>
+                <!-- Flags:<br> -->
+                <!-- <button type="button">Delete</button>  -->
+                <!-- <button type="button">Redo</button>  -->
+            </form>
         </div>
-
         <main>
             <img src="{{ image_path }}">
         </main>
@@ -52,6 +52,6 @@
         <footer>
             Image Tagger (c) 2021
         </footer>
-    -->
+        -->
     </body>
 </html>

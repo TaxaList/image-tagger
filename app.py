@@ -28,25 +28,24 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# main page with summary
-@app.route("/")
-def index():
-
+def on_start():
     #create csv and add header
     cwd = os.getcwd() # root directory of this python file
     sourcedir = cwd + "/static/images_go_here/" # directory for source images
 
     # set up prefix and suffix
-    session["prefix"] = ""
-    session["suffix"] = ""
+    global prefix
+    prefix = ""
+    global suffix
+    suffix = ""
 
     # format filename with unique id and current date
     today = date.today()
+    global session_id
     session_id = str(db.next_csv_id())
-    session["session_id"] = session_id
 
     csv_filename = cwd + "/imagetags" + session_id + "_" + str(today.strftime("%Y_%m_%d")) + ".csv" # output csv filename    
-    print("csv_filename:", csv_filename)
+    #print("csv_filename:", csv_filename)
     # open csv file
     with open(csv_filename, 'w', newline='') as f:
         writer = csv.writer(f)
@@ -54,6 +53,7 @@ def index():
         writer.writerow(['id','filename', 'md5hash', 'filetype', 'tagged', 'data', 'tagged_date' ])
         
     # add image files to db
+    # TODO: handle no images
     img_count = 0
     for path, dirs, files in os.walk(sourcedir):
         for filename in files:
@@ -72,7 +72,7 @@ def index():
 
             # write filename and hash to csv row
             #writer.writerow([img_count, filename, hasher.hexdigest(), filetype])
-                
+                    
             # iterate image count
             img_count = img_count + 1
 
@@ -80,28 +80,46 @@ def index():
             db.addimage(session_id, img_count, filename, hasher.hexdigest(), filetype)
 
     # save total image count
-    session["img_total"] = img_count
+    global img_total
+    img_total = img_count
 
+# main page with summary
+@app.route("/", methods=["GET", "POST"])
+def index():
+    global prefix
+    global suffix
     if request.method == "POST":
         # save prefix/suffix
-        # add tag data to db, csv file
+        prefix = request.form.get("prefix")
+        suffix = request.form.get("suffix")
 
-        #redirect
+        # combine prefix, data and suffix
+        tag_data = prefix + request.form.get("data") + suffix
+        # add tag data to db
+        db.add_tag(session["img_id"], tag_data)
 
-        print("placeholder")
+        # add all data to csv file
+        img_filename, img_count, image_filetype, image_hash = db.get_image_data(session["img_id"])
+
+        # redirect
+        return redirect("/")
     else:
         # get next untagged image. TODO: display message if no more untagged images.  get total count and current image count
         
         # get next image data from db
-        img_id, img_filename, img_count, image_filetype, image_hash = db.get_next_image(session["session_id"])
+        img_id, img_filename, img_count, image_filetype, image_hash = db.get_next_image(session_id)
         
         # save image id
         session["img_id"] = img_id
 
         # combine image count and total for display
-        image_count = str(img_count) + "/" + str(session["img_total"])
+        image_count = str(img_count) + "/" + str(img_total)
         
         # put together path for image
         image_path = "/static/images_go_here/" + img_filename # TODO: figure out how to have flask call images_go_here folder 
 
-        return render_template("index.html", image_count=image_count, image_path=image_path, image_name=img_filename, image_filetype=image_filetype, image_hash=image_hash, prefix=session["prefix"], suffix=session["suffix"])
+        return render_template("index.html", image_count=image_count, image_path=image_path, image_name=img_filename, image_filetype=image_filetype, image_hash=image_hash, prefix=prefix, suffix=suffix)
+
+# start flask on running app.py, run on_start
+on_start()
+app.run(port=8080, host="localhost")

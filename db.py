@@ -46,3 +46,23 @@ def get_next_image(session_id): # Get the next un-tagged image in the session (o
     conn.close()
 
     return rows
+
+def add_tag(id, data): # add tag data to image by image id TODO: add date stamp
+    conn = sqlite3.connect("main.db")
+    cur = conn.cursor()
+
+    cur.execute("UPDATE image_log SET data = :data, status = 1 WHERE id = :id", (data, id))
+    conn.commit()
+    conn.close()
+
+def get_image_data(img_id): # get data on image for csv row using img_id
+    conn = sqlite3.connect("main.db")
+    cur = conn.cursor()
+
+    cur.execute("SELECT filename, img_count, filetype, hash FROM image_log WHERE id = ?", (img_id,))
+    rows = cur.fetchone()
+
+    print("DB RESULT:", rows)
+    conn.close()
+
+    return rows
