@@ -1,13 +1,20 @@
 # image-tagger
-Efficiently manually tag imaging data.
+Efficiently tag images with data.
 
+### Todo:
 
-Todo:
+Make dated csv of all images Done
+Add user data to csv and db Done
+Handle all image types
+handle pdf, text
+option to rename images
+option to add sequential numbers
+clean up ui
 
-make dated csv of all images
-add user data to csv and db
+package standalone for windows
 
-add flags like deleted and redo
-backtrack feature
-check if image with same hash has already been done before
+Add flags like deleted and redo, user customizable
+Hotkeys
+Backtrack feature
+Check if image with same hash has already been done before
 
