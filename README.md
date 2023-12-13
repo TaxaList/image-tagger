@@ -11,6 +11,15 @@ option to rename images
 option to add sequential numbers
 clean up ui
 
+Formats:
+- image/jpg
+- image/png
+- image/tiff
+- image/bmp
+- image/gif
+- image/dng
+
+
 package standalone for windows
 
 Add flags like deleted and redo, user customizable

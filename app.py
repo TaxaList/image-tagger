@@ -68,12 +68,8 @@ def on_start():
             #print(hasher.hexdigest())
 
             # get filetype
-            filetype = magic.from_file(str(sourcedir + filename))
-            #filetype = "todo"
+            filetype = magic.from_file(str(sourcedir + filename), mime=True)
 
-            # write filename and hash to csv row
-            #writer.writerow([img_count, filename, hasher.hexdigest(), filetype])
-                    
             # iterate image count
             img_count = img_count + 1
 
@@ -125,13 +121,17 @@ def index():
         else:
             alert = ""
             img_id, img_filename, img_count, image_hash, image_filetype = image_data
-        
+
         # save image id
         session["img_id"] = img_id
 
         # combine image count and total for display
         image_count = str(img_count) + "/" + str(img_total)
-        
+
+        # based on filetype prepare image for dislay
+        #if image_filetype == "image/png": #PNG image
+        #    print("png++")
+        print("FILETYPE:", image_filetype)
         # put together path for image
         image_path = "/static/images_go_here/" + img_filename # TODO: figure out how to have flask call images_go_here folder in main dir
 
