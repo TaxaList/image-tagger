@@ -1,31 +1,40 @@
 # image-tagger
-Efficiently tag images with data.
+Image-tagger is an efficent and easy-to-use web-based application for visually tagging large numbers of images with data. Intended for users who have a need to manually review images, it automates displaying each user to the image and allows them to enter data for that image with minumal user input.
 
-### Todo:
+## Installation
 
-Make dated csv of all images Done
-Add user data to csv and db Done
-Handle all image types
-handle pdf, text
-option to rename images
-option to add sequential numbers
-clean up ui
+Image-tagger requires Python 3, Flask and Python-Magic. 
 
-put csv output in folder
+### Linux
 
-Formats:
-- image/jpg
-- image/png
-- image/tiff
-- image/bmp
-- image/gif
-- image/dng
+Install dependencies.
 
+* Ubuntu/Debian: `sudo apt install git python3 python3-flask python3-magic`
 
-package standalone for windows
+Clone the image-tagger repository.
 
-Add flags like deleted and redo, user customizable
-Hotkeys
-Backtrack feature
-Check if image with same hash has already been done before
+```
+git clone https://github.com/TaxaList/image-tagger.git
+```
 
+### Windows
+
+Install the latest version of [Python 3](https://www.python.org/) and [Git](https://git-scm.com/).
+
+Clone the image-tagger repository.
+
+```
+git clone https://github.com/TaxaList/image-tagger.git
+```
+
+## Useage
+
+Place images to be tagged in `image-tagger/images`.
+
+From the `image-tagger` directory, run:
+
+```
+python app.py
+```
+
+The application will be available at [http://localhost:8080](http://localhost:8080).
