@@ -11,6 +11,8 @@ option to rename images
 option to add sequential numbers
 clean up ui
 
+put csv output in folder
+
 Formats:
 - image/jpg
 - image/png

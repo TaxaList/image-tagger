@@ -17,5 +17,3 @@ git add filename.c
 git add *
 git commit -m "minor fixes"
 git push -u origin main
-
-pk_75f934ca607848e88578e656ae36c2dd 
