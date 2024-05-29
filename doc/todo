@@ -3,13 +3,13 @@ Make dated csv of all images Done
 Add user data to csv and db Done
 
 clean up interface
-    - wrap description text
-    - put description text in boxes
-    - chage sidebar color
-    - add border to sidebar
-    - align inputs
+    - wrap description text 
+    - put description text in boxes DONE
+    - chage sidebar color DONE
+    - add border to sidebar DONE
+    - align inputs DONE
 
-look into shortened filetype data from magic
+look into shortened filetype data from magic DONE
 fill out readme.md
 
 get pictures from directory in root 

@@ -7,6 +7,15 @@ main {
   margin-top: 37px;
 }
 
+/* image */
+.image-container {
+  margin-right: 260px;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
 /* alert: "Finished all images" display on main screen. */
 .alert {
   font-family: "Roboto",Arial,Helvetica,sans-serif;
@@ -40,7 +49,7 @@ main {
   float: left;
   text-align: center;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
   margin: 4px 6px;
 }
 .NavLeft label {
@@ -84,12 +93,17 @@ hr {
 .data-box {
   font-family: "Roboto",Arial,Helvetica,sans-serif;
   margin: 4px 4px 4px 4px;
-  font-size: 14px;
-  border: 1px solid #a6a6a6;
+  padding: 2px 2px 2px 2px;
+  font-size: 12px;
+  border: 1px solid #e2d3d3;
   text-align: left;
   text-wrap: wrap;
   /* overflow: hidden; */
 }
+.data-box a {
+font-weight: bold;
+}
+
 
 /* data input */
 .input-box {
@@ -99,10 +113,10 @@ hr {
   float: right;
 }
 .input-box label {
-  font-size: 16px;
+  font-size: 12px;
 }
 .input-box input {
-  width: 200px;
+  width: 210px;
 }
 
 .input-button {

@@ -17,10 +17,12 @@
         </div>
         <!-- sidebar --> 
         <div class="sidenav">
-            <div class="data-box"><a>Count: {{ image_count }}</a></div>
-            <div class="data-box"><a>Image Name: {{ image_name }}</a></div>
-            <div class="data-box"><a>Filetype: {{ image_filetype }}</a></div>
-            <div class="data-box"><a>MD5 Hash: {{ image_hash }}</a></div>
+            <div class="data-box">Image Count: <a>{{ image_count }}</a></div>
+            <div class="data-box">Filename: <a>{{ image_name }}</a></div>
+            <div class="data-box">Filetype: <a>{{ image_filetype }}</a></div>
+            <div class="data-box">Taken: <a>May 12, 2023 2:44:00 PM</a></div>
+            <div class="data-box">Last Modified: <a>May 29, 2023 3:02:00 PM</a></div>
+            <div class="data-box">MD5 Hash: <a>{{ image_hash }}</a></div>
             <form action="/" method="post">
                 <div class="input-box"> <!-- prefix -->
                     <label for="prefix">Prefix:</label>
@@ -33,8 +35,7 @@
                 </div>
 
                 <div class="input-box"> <!-- data -->
-
-                    <label for="data">Data:</label>
+                    <label for="data">Data:</label> 
                     <input type="text" id="data" name="data" autofocus>
                 </div>
                 <div class="input-button">
@@ -46,7 +47,9 @@
             {% if alert %}
             <a class="alert">{{ alert }}</a>
             {% else %}
-            <img src="{{ image_path }}">
+            <div class="image-container">
+                <img src="{{ image_path }}">
+            </div>
             {% endif %}
         </main>
     </body>

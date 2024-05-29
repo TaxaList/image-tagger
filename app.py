@@ -56,17 +56,20 @@ def on_start():
     img_count = 0
     for path, dirs, files in os.walk(sourcedir):
         for filename in files:
-            #print("filename:", filename)
-
             # hash file
             hasher = hashlib.md5() # put file in buffer to get hash
             with open(str(sourcedir + filename), 'rb') as afile:
                 buf = afile.read()
                 hasher.update(buf)
-            #print(hasher.hexdigest())
 
             # get filetype
             filetype = magic.from_file(str(sourcedir + filename), mime=True)
+
+            # get taken date TODO
+
+            # get modified date TODO
+
+            # get size TODO
 
             # iterate image count
             img_count = img_count + 1
