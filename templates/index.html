@@ -20,20 +20,18 @@
         </div>
         <!-- right data entry bar --> 
         <div class="sidenav">
-            <a>Count: {{ image_count }}</a>
-            <a>Image Name: {{ image_name }}</a>
-            <a>Filetype: {{ image_filetype }}</a>
-            <a>MD5 Hash: {{ image_hash }}</a>
+            <div class="data-box"><a>Count: {{ image_count }}</a></div>
+            <div class="data-box"><a>Image Name: {{ image_name }}</a></div>
+            <div class="data-box"><a>Filetype: {{ image_filetype }}</a></div>
+            <div class="data-box"><a>MD5 Hash: {{ image_hash }}</a></div>
             <br>
-            <br>
-
             <form action="/" method="post">
                 <!-- prefix -->
-                <label for="prefix">Prefix:</label>
-                <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
+                    <label for="prefix">Prefix:</label>
+                    <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
                 <!-- suffix -->
-                <label for="suffix">Suffix:</label>
-                <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
+                    <label for="suffix">Suffix:</label>
+                    <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
                 <br>
                 <!-- data -->
                 <label for="data">Data:</label>

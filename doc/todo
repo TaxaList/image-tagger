@@ -1,21 +1,24 @@
 Handle running out of images DONE
+Make dated csv of all images Done
+Add user data to csv and db Done
+
 clean up interface
+    - wrap description text
+    - put description text in boxes
+    - chage sidebar color
+    - add border to sidebar
+    - align inputs
+
 look into shortened filetype data from magic
 fill out readme.md
 
 get pictures from directory in root 
 ability to select source directory
 Combine multiple directories, save original path?
-Make dated csv of all images Done
-Add user data to csv and db Done
 Handle all image types
 handle pdf, text
 option to rename images
-option to add sequential numbers
-clean up ui
-
 put csv output in folder
-
 Formats:
 - image/jpg
 - image/png
@@ -23,10 +26,7 @@ Formats:
 - image/bmp
 - image/gif
 - image/dng
-
-
 package standalone for windows
-
 Add flags like deleted and redo, user customizable
 Hotkeys
 Backtrack feature

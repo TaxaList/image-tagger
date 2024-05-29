@@ -27,7 +27,7 @@ Clone the image-tagger repository.
 git clone https://github.com/TaxaList/image-tagger.git
 ```
 
-## Useage
+## Usage
 
 Place images to be tagged in `image-tagger/images`.
 
