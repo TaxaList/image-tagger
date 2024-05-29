@@ -29,8 +29,11 @@
                 <div class="input-box"> <!-- suffix -->
                     <label for="suffix">Suffix:</label>
                     <input type="text" id="suffix" name="suffix" value="{{ suffix }}">
+                    <hr>
                 </div>
+
                 <div class="input-box"> <!-- data -->
+
                     <label for="data">Data:</label>
                     <input type="text" id="data" name="data" autofocus>
                 </div>
@@ -40,8 +43,11 @@
             </form>
         </div>
         <main>
-            <img src="{{ image_path }}">
+            {% if alert %}
             <a class="alert">{{ alert }}</a>
+            {% else %}
+            <img src="{{ image_path }}">
+            {% endif %}
         </main>
     </body>
 </html>
