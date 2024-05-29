@@ -8,49 +8,40 @@
     </head>
     <body>
         <div class="header">
-            <nav>
-                  <nav class="TopNavbar">
-                <div class="NavLeft">
-                    <img src="/static/logo.png" alt="Logo">
-                </div>
+            <!-- top navbar -->
+            <nav class="TopNavbar">
                 <div class="NavLeft">
                     <label>Image-Tagger</label>
                 </div>
             </nav>
         </div>
-        <!-- right data entry bar --> 
+        <!-- sidebar --> 
         <div class="sidenav">
             <div class="data-box"><a>Count: {{ image_count }}</a></div>
             <div class="data-box"><a>Image Name: {{ image_name }}</a></div>
             <div class="data-box"><a>Filetype: {{ image_filetype }}</a></div>
             <div class="data-box"><a>MD5 Hash: {{ image_hash }}</a></div>
-            <br>
             <form action="/" method="post">
-                <!-- prefix -->
+                <div class="input-box"> <!-- prefix -->
                     <label for="prefix">Prefix:</label>
-                    <input type="text" id="prefix" name="prefix" value="{{ prefix }}"><br><br>
-                <!-- suffix -->
+                    <input type="text" id="prefix" name="prefix" value="{{ prefix }}">
+                </div>
+                <div class="input-box"> <!-- suffix -->
                     <label for="suffix">Suffix:</label>
-                    <input type="text" id="suffix" name="suffix" value="{{ suffix }}"><br><br>
-                <br>
-                <!-- data -->
-                <label for="data">Data:</label>
-                <input type="text" id="data" name="data" autofocus><br><br>
-                <button class="login-button" type="submit">Submit</button>
-                <!-- Flags:<br> -->
-                <!-- <button type="button">Delete</button>  -->
-                <!-- <button type="button">Redo</button>  -->
+                    <input type="text" id="suffix" name="suffix" value="{{ suffix }}">
+                </div>
+                <div class="input-box"> <!-- data -->
+                    <label for="data">Data:</label>
+                    <input type="text" id="data" name="data" autofocus>
+                </div>
+                <div class="input-button">
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </div>
         <main>
             <img src="{{ image_path }}">
             <a class="alert">{{ alert }}</a>
         </main>
-
-        <!--
-        <footer>
-            Image Tagger (c) 2021
-        </footer>
-        -->
     </body>
 </html>
