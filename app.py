@@ -43,7 +43,7 @@ def on_start():
     session_id = str(db.next_csv_id())
 
     global csv_filename
-    csv_filename = cwd + "/imagetags" + session_id + "_" + str(today.strftime("%Y_%m_%d")) + ".csv" # output csv filename    
+    csv_filename = cwd + "/output/imagetags" + session_id + "_" + str(today.strftime("%Y_%m_%d")) + ".csv" # output csv filename    
     #print("csv_filename:", csv_filename)
     # open csv file
     with open(csv_filename, 'w', newline='') as f:
@@ -129,7 +129,7 @@ def index():
         # based on filetype prepare image for dislay
         #if image_filetype == "image/png": #PNG image
         #    print("png++")
-        print("FILETYPE:", image_filetype)
+        # print("FILETYPE:", image_filetype)
         # put together path for image
         image_path = "/static/images_go_here/" + img_filename # TODO: figure out how to have flask call images_go_here folder in main dir
 

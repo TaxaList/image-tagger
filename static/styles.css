@@ -65,7 +65,7 @@ main {
  /* top: 0; /* Stay at the top */
   right: 0;
   background-color: rgb(240, 236, 227);
-  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-x: hidden; /* Disable horizontal scroll */ 
   padding-top: 0px;
   margin-top: 0px;
   border-left: 1px solid black;
